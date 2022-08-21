@@ -43,10 +43,12 @@ public class FirstProjectAmazon {
             System.out.println(ProductPrice.get(index).getText());
         }
 
-        // Click on First Product Link
-        ProductDesc.get(0).click();
+        //Fetch string to validate
         String toValidate = ProductDesc.get(0).getText();
         System.out.println(toValidate);
+
+        // Click on First Product Link
+        ProductDesc.get(0).click();
 
         //Validation on parent and child windows
 
@@ -66,7 +68,6 @@ public class FirstProjectAmazon {
             System.out.println("TC Passed");
         }else {
             System.out.println("TC Failed");
-
         }
     }
 }
