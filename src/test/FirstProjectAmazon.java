@@ -43,27 +43,31 @@ public class FirstProjectAmazon {
             System.out.println(ProductPrice.get(index).getText());
         }
 
-        //Fetch string to validate
+        //Fetch string to validate on Parent Window
         String toValidate = ProductDesc.get(0).getText();
         System.out.println(toValidate);
 
         // Click on First Product Link
         ProductDesc.get(0).click();
 
-        //Validation on parent and child windows
+        //Validation of Header String parent and child windows
 
         Set<String> allWinHan = driver.getWindowHandles();
         System.out.println("Before Clicking Tab button the win is " + ParentWin);
 
+        //Switching Window Handlers
         for(String win:allWinHan){
             if(!win.equals(ParentWin)){
                 driver.switchTo().window(win);
             }
         }
+
+        //zfetch Header String on child window
         WebElement HeadingOnNewTab = driver.findElement(By.xpath("//div[@id='title_feature_div']//span"));
         String headerString = HeadingOnNewTab.getText();
         System.out.println(headerString);
 
+        //Validating
         if(headerString.equals(toValidate)){
             System.out.println("TC Passed");
         }else {
